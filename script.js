@@ -9,14 +9,20 @@ function compute()
     const futureYear = +y.getFullYear()+ +year 
 
     
-    if (principal <= 0 || rate <= 0 || year <= 0) {
-        document.getElementById("resultDisplay").innerHTML= "Please enter a positive number"
+    
+    if (principal <= 0 ) {
+        alert("Please enter a positive number")
+        document.getElementById("principal").focus()
+        //document.getElementById("resultDisplay").innerHTML = "Please enter a positive number"
     }
     else {
         
         result = principal * year * rate / 100 
         document.getElementById("resultDisplay").
-        innerHTML = "If you deposit " +principal+  ", <br> at an interest rate of " +rate+ ",<br> You will receive an amount of "+result+ ",<br>  in the year " +futureYear+"<br></br>"
+            innerHTML = "If you deposit <mark>"  + principal + 
+             "</mark>, <br> at an interest rate of <mark>" + rate +
+             "%</mark>,<br> You will receive an amount of <mark>" + result +
+            "</mark>,<br>  in the year <mark>" + futureYear + "</mark><br></br>"
     }
 }
 
@@ -24,9 +30,9 @@ function compute()
     var slider = document.getElementById("sliderRange");
     var output = document.getElementById("rateDisplay");
     
-        output.innerHTML = slider.value;
+        output.innerHTML = slider.value+"%";
         slider.oninput = function() {
-          output.innerHTML = this.value;
+        output.innerText = this.value+"%" ;
         }
 
 
